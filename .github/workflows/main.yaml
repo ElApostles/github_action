@@ -28,15 +28,24 @@ jobs:
           
   Second-job:
     name : 'second job'
+    needs: first-job
 
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Setup node.js
-        uses: actions/setup-node@v3
-        with: 
-          node-version: ${{ matrix.nodejs}}
 
+      - name : output value
+        shell : bash
+        run: | 
+          echo "Hello World"
+
+  Third-job:
+    name : 'third job'
+    needs: Second-job
+
+    runs-on: ubuntu-latest
+
+    steps: 
       - name : output value
         shell : bash
         run: | 
