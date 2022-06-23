@@ -14,18 +14,21 @@ jobs:
     steps:
     - name: Say hello World 1
       shell : bash
-      env:
-        STEP_LEVEL_1 : "THIS COMES FROM STEP LEVEL 1"
       run : |
         echo "Hello World from step 1"
-        echo $WORKFLOW_LEVEL
-        echo $JOB_LEVEL1
-        echo $JOB_LEVEL2
-        echo $JOB_LEVEL3
+        echo "STEP_VALUE_1='THIS IS SET BY STEP 1'" >> $GITHUB_ENV
+
 
     - name : Say Hello World 2
       shell : pwsh
-      env:
-        STEP_LEVEL_2 : "THIS COMES FROM STEP LEVEL 2"
       run : |
         echo "Hello World from step 2"
+        echo "VALUE: $env:STEP_VALUE_1"
+        echo "VALUE: ${{ env.STEP_VALUE_1 }}"
+
+    - name : Say Hello World 3
+      shell : bash 
+      run : |
+        echo "Hello World from step 2"
+        echo "VALUE: $STEP_VALUE_1"
+        echo "VALUE: ${{ env.STEP_VALUE_1 }}"
