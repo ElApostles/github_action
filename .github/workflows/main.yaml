@@ -33,7 +33,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-
       - name : output value
         shell : bash
         run: | 
@@ -41,7 +40,7 @@ jobs:
 
   Third-job:
     name : 'third job'
-    needs: Second-job
+    needs: first-job
 
     runs-on: ubuntu-latest
 
