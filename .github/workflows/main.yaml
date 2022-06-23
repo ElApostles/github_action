@@ -12,18 +12,16 @@ jobs:
 
     steps: 
       - name: Setup node.js
-        uses: actoins/setup-node@v3
+        uses: actions/setup-node@v3
         with: 
           node-version: ${{ matrix.nodejs}}
 
       - name : output value
-        id : first
         shell : bash
         run: | 
           echo "Hello World"
           
       - name : output value 2
-        id: first
         if: github.evnet_name == 'pull_request'
         shell : bash
         run: | 
@@ -37,12 +35,11 @@ jobs:
 
     steps: 
       - name: Setup node.js
-        uses: actoins/setup-node@v3
+        uses: actions/setup-node@v3
         with: 
           node-version: ${{ matrix.nodejs}}
 
       - name : output value
-        id : first
         shell : bash
         run: | 
           echo "Hello World"
