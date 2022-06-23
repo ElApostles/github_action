@@ -20,6 +20,9 @@ jobs:
         uses: actoins/setup-node@v3
         with: 
           node-version: ${{ matrix.nodejs}}
+
+      - name : output value from ${{ matrix.os }}
+        id : first
         shell : bash
         run: | 
           echo "OS: ${{ matrix.os }}"
