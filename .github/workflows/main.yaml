@@ -14,10 +14,18 @@ jobs:
     steps:
     - name: Say hello World 1
       shell : bash
+      env:
+        STEP_LEVEL_1 : "THIS COMES FROM STEP LEVEL 1"
       run : |
         echo "Hello World from step 1"
+        echo $WORKFLOW_LEVEL
+        echo $JOB_LEVEL1
+        echo $JOB_LEVEL2
+        echo $JOB_LEVEL3
 
     - name : Say Hello World 2
       shell : pwsh
+      env:
+        STEP_LEVEL_2 : "THIS COMES FROM STEP LEVEL 2"
       run : |
         echo "Hello World from step 2"
